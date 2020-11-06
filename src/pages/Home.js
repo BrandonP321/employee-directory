@@ -12,22 +12,14 @@ export default class Home extends Component {
         this.setState({ employeesArr: employees})
     }
 
-    // renderCardsBySearch = () => {
+    handleSearchInput = (event) => {
 
-    // }
-
-    // renderCardsByFilter = () => {
-
-    // }
-
-    // handleRender = () => {
-
-    // }
+    }
 
     render() {
         return (
             <div>
-                <SearchBar />
+                <SearchBar employees={this.state.employeesArr} />
                 {this.state.employeesArr.map(employee => <EmployeeCard employeeInfo={employee} />)}
             </div>
         )
