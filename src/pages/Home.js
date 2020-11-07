@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Header from '../components/Header'
 import SearchBar from '../components/SearchBar'
 import EmployeeCard from '../components/EmployeeCard'
 import employees from '../employees.json'
@@ -30,6 +31,7 @@ export default class Home extends Component {
     render() {
         return (
             <div>
+                <Header />
                 <SearchBar employees={this.state.employeesArr} handleSearch={this.handleSearch} />
                 {this.state.employeesArr.map(employee => <EmployeeCard employeeInfo={employee} />)}
             </div>

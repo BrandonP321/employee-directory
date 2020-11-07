@@ -1,4 +1,5 @@
 import React from 'react'
+import './style.css'
 
 export default function EmployeeCard(props) {
     // grab values from prop object of employee info
@@ -10,10 +11,10 @@ export default function EmployeeCard(props) {
                 {name}
             </div>
             <div class='employeeEmail employeeCol'>
-                {email}
+                <a href={`mailto:${email}`}>{email}</a>
             </div>
             <div class='employeePhone employeeCol'>
-                {phone}
+                <a href={`tel:${phone}`}>{phone}</a>
             </div>
         </div>
     )
