@@ -13,12 +13,14 @@ export default class Home extends Component {
         event.preventDefault();
 
         // grab value from input form
-        const userSearch = event.target.children[0].children[0].value
+        const userSearch = event.target.children[0].children[0].children[0].children[0].value
+
+        console.log(userSearch)
 
         // match all employees who match the search
         const newEmployees = employees.filter(employee => {
             // REGEX for checking employee name
-            const nameRegex = new RegExp('^' + userSearch + '.', 'i')
+            const nameRegex = new RegExp('^' + userSearch, 'i')
 
             // check if the user's query matches atleast the beginning of the employees full name
             return nameRegex.test(employee.name)

@@ -1,4 +1,5 @@
 import React from 'react'
+import './style.css'
 
 export default function SearchBar(props) {
     return (
@@ -9,8 +10,14 @@ export default function SearchBar(props) {
             </datalist>
             <form onSubmit={props.handleSearch}>
                 <div class='form-group'>
-                    <input list='employeesList' type='text' class='form-control' id='employeeInput'></input>
-                    <button type='submit' class='btn btn-primary'>Search</button>
+                    <div class='row'>
+                        <div class='col-md-10'>
+                            <input list='employeesList' type='text' class='form-control' id='employeeInput'></input>
+                        </div>
+                        <div class='col-md-2'>
+                            <button type='submit' class='btn btn-primary'>Search</button>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
