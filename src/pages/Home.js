@@ -8,18 +8,29 @@ export default class Home extends Component {
         employeesArr: employees
     }
 
-    componentDidMount = () => {
-        this.setState({ employeesArr: employees})
-    }
+    handleSearch = (event) => {
+        event.preventDefault();
 
-    handleSearchInput = (event) => {
+        // grab value from input form
+        const userSearch = event.target.children[0].children[0].value
 
+        // match all employees who match the search
+        const newEmployees = employees.filter(employee => {
+            // REGEX for checking employee name
+            const nameRegex = new RegExp('^' + userSearch + '.', 'i')
+
+            // check if the user's query matches atleast the beginning of the employees full name
+            return nameRegex.test(employee.name)
+        })
+
+        // set array of employees in state to new filtered array
+        this.setState({ employeesArr: newEmployees })
     }
 
     render() {
         return (
             <div>
-                <SearchBar employees={this.state.employeesArr} />
+                <SearchBar employees={this.state.employeesArr} handleSearch={this.handleSearch} />
                 {this.state.employeesArr.map(employee => <EmployeeCard employeeInfo={employee} />)}
             </div>
         )
